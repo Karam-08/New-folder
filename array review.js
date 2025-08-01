@@ -22,8 +22,8 @@ const supplies = [
  console.log(employees)
 
 // Task 1.2: Employee Departure
- let employee = employees.pop();
- console.log(employee)
+ // let employee = employees.pop();
+ // console.log(employee)
 
 // Task 1.3: Urgent Delivery
  supplies.unshift('welcome kit')
@@ -51,14 +51,31 @@ console.log(newSupplies.toString())
 // It seems that .toString() only puts a comma between while .join() lets you put whatever between
 
 
-// Part 3: Slicing and Findingz
+// Part 3: Slicing and Finding
 
 
 // Task 3.1: Engineering Team
+const Charlie = employees.find(employee => employee.name === 'Charlie')
+console.log(Charlie)
 
 // Task 3.2: First Three Employees
-const top3 = employees.slice(1, 2, 3)
+const top3 = employees.slice(0, 3)
 console.log(top3)
 
 // Task 3.3: Alphabetical Order
+const employeesCopy = [...employees]
+employeesCopy.sort((a, b) =>{
+    if(a.name < b.name) return -1;
+    if(a.name > b.name) return 1;
+    return 0;
+});
+console.log(employeesCopy)
 
+// BONUS CHALLENGE: Putting it all together
+console.log(employeesCopy)
+organizedEmployees = []
+for(var i = 0; i < employeesCopy.length; i++){
+    organizedEmployees.push(employeesCopy[i].name)
+}
+const seperatedEmployees = organizedEmployees.join("; ")
+console.log(seperatedEmployees)
